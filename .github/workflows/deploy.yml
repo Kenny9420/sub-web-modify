@@ -1,25 +1,25 @@
 name: Build and Deploy to Cloudflare Pages
 
 on:
- push:
- branches: [master]
+  push:
+    branches: [master]
 
 jobs:
- build-and-deploy:
- runs-on: ubuntu-latest
- steps:
- - name: Checkout
- uses: actions/checkout@v4
- - name: Setup Node
- uses: actions/setup-node@v4
- with:
- node-version: '20'
- - name: Install dependencies
- run: npm install
- - name: Build
- run: npm run build
- - name: Deploy to Cloudflare Pages
- run: npx wrangler pages deploy dist --project-name=sub-web-modify
- env:
- CLOUDFLARE_API_KEY: ${{ secrets.CF_API_KEY }}
- CLOUDFLARE_EMAIL: ${{ secrets.CF_API_EMAIL }}
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy dist --project-name=sub-web-modify
+        env:
+          CLOUDFLARE_API_KEY: ${{ secrets.CF_API_KEY }}
+          CLOUDFLARE_EMAIL: ${{ secrets.CF_API_EMAIL }}
