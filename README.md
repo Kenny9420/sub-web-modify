@@ -11,3 +11,5 @@ docker run -d --restart unless-stopped --privileged=true -p 8090:80 --name sub-w
 ```
 http://192.168.10.1:8090/?backend=https://url.v1.mk
 ```
+
+<!-- deploy trigger -->
