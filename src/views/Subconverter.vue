@@ -479,7 +479,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "我的自建后端": "https://subconverter.1040327027.workers.dev/sub",
+          "冷雨科技": "https://subconverter.1040327027.workers.dev/sub",
           "大象后端": "https://sub2.dxdyzh.tk",
           "佩奇后端": "https://api.nexconvert.com",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
