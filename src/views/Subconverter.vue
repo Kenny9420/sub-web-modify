@@ -12,52 +12,52 @@
             <svg-icon class="youguan" icon-class="youtube" style="float:right;margin-left:10px" @click="gotoYouTuBe"/>
             <svg-icon class="channel" icon-class="telegram" style="float:right;margin-left: 10px"
                       @click="gotoTgChannel"/>
-            <div style="text-align:center;font-size:15px">订 阅 转 换</div>
+            <div style="text-align:center;font-size:15px">璁?闃?杞?鎹?/div>
           </div>
           <el-container>
             <el-form :model="form" label-width="80px" label-position="left" style="width: 100%">
-              <el-form-item label="订阅链接:">
+              <el-form-item label="璁㈤槄閾炬帴:">
                 <el-input
                     v-model="form.sourceSubUrl"
                     type="textarea"
                     rows="3"
-                    placeholder="支持各种订阅链接或单节点链接，多个链接每行一个或用 | 分隔"
+                    placeholder="鏀寔鍚勭璁㈤槄閾炬帴鎴栧崟鑺傜偣閾炬帴锛屽涓摼鎺ユ瘡琛屼竴涓垨鐢?| 鍒嗛殧"
                 />
               </el-form-item>
-              <el-form-item label="生成类型:">
+              <el-form-item label="鐢熸垚绫诲瀷:">
                 <el-select v-model="form.clientType" style="width: 100%">
                   <el-option v-for="(v, k) in options.clientTypes" :key="k" :label="k" :value="v"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="后端地址:">
+              <el-form-item label="鍚庣鍦板潃:">
                 <el-select
                     v-model="form.customBackend"
                     allow-create
                     filterable
                     @change="selectChanged"
-                    placeholder="可输入自己的后端"
+                    placeholder="鍙緭鍏ヨ嚜宸辩殑鍚庣"
                     style="width: 100%"
                 >
                   <el-option v-for="(v, k) in options.customBackend" :key="k" :label="k" :value="v"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="短链选择:">
+              <el-form-item label="鐭摼閫夋嫨:">
                 <el-select
                     v-model="form.shortType"
                     allow-create
                     filterable
-                    placeholder="可输入其他可用短链API"
+                    placeholder="鍙緭鍏ュ叾浠栧彲鐢ㄧ煭閾続PI"
                     style="width: 100%"
                 >
                   <el-option v-for="(v, k) in options.shortTypes" :key="k" :label="k" :value="v"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="远程配置:">
+              <el-form-item label="杩滅▼閰嶇疆:">
                 <el-select
                     v-model="form.remoteConfig"
                     allow-create
                     filterable
-                    placeholder="请选择"
+                    placeholder="璇烽€夋嫨"
                     style="width: 100%"
                 >
                   <el-option-group
@@ -78,38 +78,38 @@
                 <el-collapse>
                   <el-collapse-item>
                     <template slot="title">
-                      <el-form-item label="高级功能:" style="width: 100%;">
+                      <el-form-item label="楂樼骇鍔熻兘:" style="width: 100%;">
                         <el-button
                             type="limr"
                             style="width: 100%;"
                             icon="el-icon-more-outline"
-                        >点击显示/隐藏
+                        >鐐瑰嚮鏄剧ず/闅愯棌
                         </el-button>
                       </el-form-item>
                     </template>
-                    <el-form-item label="包含节点:">
-                      <el-input v-model="form.includeRemarks" placeholder="要保留的节点，支持正则"/>
+                    <el-form-item label="鍖呭惈鑺傜偣:">
+                      <el-input v-model="form.includeRemarks" placeholder="瑕佷繚鐣欑殑鑺傜偣锛屾敮鎸佹鍒?/>
                     </el-form-item>
-                    <el-form-item label="排除节点:">
-                      <el-input v-model="form.excludeRemarks" placeholder="要排除的节点，支持正则"/>
+                    <el-form-item label="鎺掗櫎鑺傜偣:">
+                      <el-input v-model="form.excludeRemarks" placeholder="瑕佹帓闄ょ殑鑺傜偣锛屾敮鎸佹鍒?/>
                     </el-form-item>
-                    <el-form-item label="节点命名:">
-                      <el-input v-model="form.rename" placeholder="举例：`a@b``1@2`，|符可用\转义"/>
+                    <el-form-item label="鑺傜偣鍛藉悕:">
+                      <el-input v-model="form.rename" placeholder="涓句緥锛歚a@b``1@2`锛寍绗﹀彲鐢╘杞箟"/>
                     </el-form-item>
-                    <el-form-item label="远程设备:">
-                      <el-input v-model="form.devid" placeholder="用于设置QuantumultX的远程设备ID"/>
+                    <el-form-item label="杩滅▼璁惧:">
+                      <el-input v-model="form.devid" placeholder="鐢ㄤ簬璁剧疆QuantumultX鐨勮繙绋嬭澶嘔D"/>
                     </el-form-item>
-                    <el-form-item label="更新间隔:">
-                      <el-input v-model="form.interval" placeholder="返用于设置托管配置更新间隔，单位为天"/>
+                    <el-form-item label="鏇存柊闂撮殧:">
+                      <el-input v-model="form.interval" placeholder="杩旂敤浜庤缃墭绠￠厤缃洿鏂伴棿闅旓紝鍗曚綅涓哄ぉ"/>
                     </el-form-item>
-                    <el-form-item label="订阅命名:">
+                    <el-form-item label="璁㈤槄鍛藉悕:">
                       <el-input v-model="form.filename"
-                                placeholder="返回的订阅文件名，可以在支持文件名的客户端中显示出来"/>
+                                placeholder="杩斿洖鐨勮闃呮枃浠跺悕锛屽彲浠ュ湪鏀寔鏂囦欢鍚嶇殑瀹㈡埛绔腑鏄剧ず鍑烘潵"/>
                     </el-form-item>
                     <el-form-item class="eldiy" label-width="0px">
                       <el-row type="flex">
                         <el-col>
-                          <el-checkbox v-model="form.nodeList" label="仅输出节点信息" border></el-checkbox>
+                          <el-checkbox v-model="form.nodeList" label="浠呰緭鍑鸿妭鐐逛俊鎭? border></el-checkbox>
                         </el-col>
                         <el-popover placement="bottom" v-model="form.extraset">
                           <el-row :gutter="10">
@@ -117,23 +117,23 @@
                               <el-checkbox v-model="form.emoji" label="Emoji"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.insert" label="插入默认节点"></el-checkbox>
+                              <el-checkbox v-model="form.insert" label="鎻掑叆榛樿鑺傜偣"></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.udp" label="启用 UDP"></el-checkbox>
+                              <el-checkbox v-model="form.udp" label="鍚敤 UDP"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.xudp" label="启用 XUDP"></el-checkbox>
+                              <el-checkbox v-model="form.xudp" label="鍚敤 XUDP"></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.tfo" label="启用 TFO"></el-checkbox>
+                              <el-checkbox v-model="form.tfo" label="鍚敤 TFO"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.sort" label="基础节点排序"></el-checkbox>
+                              <el-checkbox v-model="form.sort" label="鍩虹鑺傜偣鎺掑簭"></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
@@ -141,7 +141,7 @@
                               <el-checkbox v-model="form.tpl.clash.doh" label="Clash.DoH"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.appendType" label="插入节点类型"></el-checkbox>
+                              <el-checkbox v-model="form.appendType" label="鎻掑叆鑺傜偣绫诲瀷"></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
@@ -149,33 +149,33 @@
                               <el-checkbox v-model="form.tpl.surge.doh" label="Surge.DoH"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.tls13" label="开启TLS_1.3"></el-checkbox>
+                              <el-checkbox v-model="form.tls13" label="寮€鍚疶LS_1.3"></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.expand" label="展开规则全文"></el-checkbox>
+                              <el-checkbox v-model="form.expand" label="灞曞紑瑙勫垯鍏ㄦ枃"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.new_name" label="Clash新字段名"></el-checkbox>
+                              <el-checkbox v-model="form.new_name" label="Clash鏂板瓧娈靛悕"></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
-                              <el-checkbox v-model="form.scv" label="跳过证书验证"></el-checkbox>
+                              <el-checkbox v-model="form.scv" label="璺宠繃璇佷功楠岃瘉"></el-checkbox>
                             </el-col>
                             <el-col :span="12">
-                              <el-checkbox v-model="form.fdn" label="过滤不支持节点"></el-checkbox>
+                              <el-checkbox v-model="form.fdn" label="杩囨护涓嶆敮鎸佽妭鐐?></el-checkbox>
                             </el-col>
                           </el-row>
                           <el-row :gutter="10">
                             <el-col :span="12">
                               <div style="margin-left: 35%">
-                                <el-checkbox v-model="form.tpl.singbox.ipv6" label="Sing-Box支持IPV6"></el-checkbox>
+                                <el-checkbox v-model="form.tpl.singbox.ipv6" label="Sing-Box鏀寔IPV6"></el-checkbox>
                               </div>
                             </el-col>
                           </el-row>
-                          <el-button slot="reference">更多选项</el-button>
+                          <el-button slot="reference">鏇村閫夐」</el-button>
                         </el-popover>
                       </el-row>
                     </el-form-item>
@@ -191,7 +191,7 @@
                   <i id="yejian" class="el-icon-moon"></i>
                 </el-button>
               </el-divider>
-              <el-form-item label="定制订阅:">
+              <el-form-item label="瀹氬埗璁㈤槄:">
                 <el-input class="copy-content" disabled v-model="customSubUrl">
                   <el-button
                       slot="append"
@@ -199,20 +199,20 @@
                       v-clipboard:success="onCopy"
                       ref="copy-btn"
                       icon="el-icon-document-copy"
-                  >复制
+                  >澶嶅埗
                   </el-button>
                 </el-input>
               </el-form-item>
-              <el-form-item label="订阅短链:">
+              <el-form-item label="璁㈤槄鐭摼:">
                 <el-input class="copy-content" v-model="customShortSubUrl"
-                          placeholder="输入自定义短链接后缀，点击生成短链接可反复生成">
+                          placeholder="杈撳叆鑷畾涔夌煭閾炬帴鍚庣紑锛岀偣鍑荤敓鎴愮煭閾炬帴鍙弽澶嶇敓鎴?>
                   <el-button
                       slot="append"
                       v-clipboard:copy="customShortSubUrl"
                       v-clipboard:success="onCopy"
                       ref="copy-btn"
                       icon="el-icon-document-copy"
-                  >复制
+                  >澶嶅埗
                   </el-button>
                 </el-input>
               </el-form-item>
@@ -222,7 +222,7 @@
                     type="danger"
                     @click="makeUrl"
                     :disabled="form.sourceSubUrl.length === 0 || btnBoolean"
-                >生成订阅链接
+                >鐢熸垚璁㈤槄閾炬帴
                 </el-button>
                 <el-button
                     style="width: 120px"
@@ -230,7 +230,7 @@
                     @click="makeShortUrl"
                     :loading="loading1"
                     :disabled="customSubUrl.length === 0"
-                >生成短链接
+                >鐢熸垚鐭摼鎺?
                 </el-button>
               </el-form-item>
               <el-form-item label-width="0px" style="text-align: center">
@@ -239,14 +239,14 @@
                     type="primary"
                     icon="el-icon-copy-document"
                     :loading="loading3"
-                ><a href="https://t.me/CitizenScyu" style="color: inherit;">加入频道</a></el-button>
+                ><a href="https://t.me/CitizenScyu" style="color: inherit;">鍔犲叆棰戦亾</a></el-button>
                 <el-button
                     style="width: 120px"
                     type="primary"
                     @click="dialogLoadConfigVisible = true"
                     icon="el-icon-copy-document"
                     :loading="loading3"
-                >从URL解析</el-button>
+                >浠嶶RL瑙ｆ瀽</el-button>
               </el-form-item>
               <el-form-item label-width="0px" style="text-align: center">
                 <el-button
@@ -254,7 +254,7 @@
                     type="primary"
                     icon="el-icon-video-play"
                     @click="centerDialogVisible = true"
-                >视频教程
+                >瑙嗛鏁欑▼
                 </el-button>
               <el-button
                     style="width: 120px"
@@ -262,7 +262,7 @@
                     @click="dialogUploadConfigVisible = true"
                     icon="el-icon-upload"
                     :loading="loading2"
-                >自定义配置
+                >鑷畾涔夐厤缃?
                 </el-button>
               </el-form-item>
             </el-form>
@@ -271,7 +271,7 @@
       </el-col>
     </el-row>
     <el-dialog
-        title="请选择需要观看的视频教程"
+        title="璇烽€夋嫨闇€瑕佽鐪嬬殑瑙嗛鏁欑▼"
         :visible.sync="centerDialogVisible"
         :show-close="false"
         width="40vh"
@@ -283,7 +283,7 @@
             type="primary"
             icon="el-icon-video-play"
             @click="gotoBasicVideo();centerDialogVisible = false"
-        >基础视频教程
+        >鍩虹瑙嗛鏁欑▼
         </el-button>
       </div>
       <div label-width="0px" style="text-align: center;margin: 3vh 0 2vh">
@@ -292,7 +292,7 @@
             type="danger"
             icon="el-icon-video-play"
             @click="gotoAdvancedVideo();centerDialogVisible = false"
-        >进阶视频教程
+        >杩涢樁瑙嗛鏁欑▼
         </el-button>
       </div>
       <div label-width="0px" style="text-align: center;margin: 3vh 0 2vh">
@@ -301,7 +301,7 @@
             type="warning"
             icon="el-icon-download"
             @click="toolsDown"
-        >代理工具集合
+        >浠ｇ悊宸ュ叿闆嗗悎
         </el-button>
       </div>
     </el-dialog>
@@ -313,9 +313,9 @@
         width="80%"
     >
       <el-tabs v-model="activeName" type="card">
-        <el-tab-pane label="远程配置上传" name="first">
+        <el-tab-pane label="杩滅▼閰嶇疆涓婁紶" name="first">
           <el-link type="danger" :href="sampleConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
+            鍙傝€冩渚?
           </el-link>
           <el-form label-position="left">
             <el-form-item prop="uploadConfig">
@@ -329,24 +329,24 @@
             </el-form-item>
           </el-form>
           <div style="float: right">
-            <el-button type="primary" @click="uploadConfig = ''; dialogUploadConfigVisible = false">取 消</el-button>
+            <el-button type="primary" @click="uploadConfig = ''; dialogUploadConfigVisible = false">鍙?娑?/el-button>
             <el-button
                 type="primary"
                 @click="confirmUploadConfig"
                 :disabled="uploadConfig.length === 0"
-            >确 定
+            >纭?瀹?
             </el-button>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="JS排序节点" name="second">
+        <el-tab-pane label="JS鎺掑簭鑺傜偣" name="second">
           <el-link type="success" :href="scriptConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
+            鍙傝€冩渚?
           </el-link>
           <el-form label-position="left">
             <el-form-item prop="uploadScript">
               <el-input
                   v-model="uploadScript"
-                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
+                  placeholder="鏈姛鑳芥殏鍋滀娇鐢紝濡傛湁鍏磋叮锛岃嚜琛屽幓鎴戠殑GitHub鍙傝€僺ub-web-api椤圭洰閮ㄧ讲锛?
                   type="textarea"
                   :autosize="{ minRows: 15, maxRows: 15}"
                   maxlength="50000"
@@ -355,24 +355,24 @@
             </el-form-item>
           </el-form>
           <div style="float: right">
-            <el-button type="primary" @click="uploadScript = ''; dialogUploadConfigVisible = false">取 消</el-button>
+            <el-button type="primary" @click="uploadScript = ''; dialogUploadConfigVisible = false">鍙?娑?/el-button>
             <el-button
                 type="primary"
                 @click="confirmUploadScript"
                 :disabled="uploadScript.length === 0"
-            >确 定
+            >纭?瀹?
             </el-button>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="JS筛选节点" name="third">
+        <el-tab-pane label="JS绛涢€夎妭鐐? name="third">
           <el-link type="warning" :href="filterConfig" style="margin-bottom: 15px" target="_blank" icon="el-icon-info">
-            参考案例
+            鍙傝€冩渚?
           </el-link>
           <el-form label-position="left">
             <el-form-item prop="uploadFilter">
               <el-input
                   v-model="uploadFilter"
-                  placeholder="本功能暂停使用，如有兴趣，自行去我的GitHub参考sub-web-api项目部署！"
+                  placeholder="鏈姛鑳芥殏鍋滀娇鐢紝濡傛湁鍏磋叮锛岃嚜琛屽幓鎴戠殑GitHub鍙傝€僺ub-web-api椤圭洰閮ㄧ讲锛?
                   type="textarea"
                   :autosize="{ minRows: 15, maxRows: 15}"
                   maxlength="50000"
@@ -381,12 +381,12 @@
             </el-form-item>
           </el-form>
           <div style="float: right">
-            <el-button type="primary" @click="uploadFilter = ''; dialogUploadConfigVisible = false">取 消</el-button>
+            <el-button type="primary" @click="uploadFilter = ''; dialogUploadConfigVisible = false">鍙?娑?/el-button>
             <el-button
                 type="primary"
                 @click="confirmUploadScript"
                 :disabled="uploadFilter.length === 0"
-            >确 定
+            >纭?瀹?
             </el-button>
           </div>
         </el-tab-pane>
@@ -400,7 +400,7 @@
         width="80%"
     >
       <div slot="title">
-        可以从生成的长/短链接中解析信息,填入页面中去
+        鍙互浠庣敓鎴愮殑闀?鐭摼鎺ヤ腑瑙ｆ瀽淇℃伅,濉叆椤甸潰涓幓
       </div>
       <el-form label-position="left">
         <el-form-item prop="uploadConfig">
@@ -414,12 +414,12 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="loadConfig = ''; dialogLoadConfigVisible = false">取 消</el-button>
+        <el-button type="primary" @click="loadConfig = ''; dialogLoadConfigVisible = false">鍙?娑?/el-button>
         <el-button
             type="primary"
             @click="confirmLoadConfig"
             :disabled="loadConfig.length === 0"
-        >确 定
+        >纭?瀹?
         </el-button>
       </div>
     </el-dialog>
@@ -446,7 +446,7 @@ export default {
       backendVersion: "",
       centerDialogVisible: false,
       activeName: 'first',
-      // 是否为 PC 端
+      // 鏄惁涓?PC 绔?
       isPC: true,
       btnBoolean: false,
       options: {
@@ -457,7 +457,7 @@ export default {
           V2Ray: "v2ray",
           Trojan: "trojan",
           ShadowsocksR: "ssr",
-          "混合订阅（mixed）": "mixed",
+          "娣峰悎璁㈤槄锛坢ixed锛?: "mixed",
           Surfboard: "surfboard",
           Quantumult: "quan",
           "Quantumult X": "quanx",
@@ -469,7 +469,7 @@ export default {
           "Shadowsocks(SIP002)": "ss",
           "Shadowsocks Android(SIP008)": "sssub",
           ShadowsocksD: "ssd",
-          "自动判断客户端": "auto",
+          "鑷姩鍒ゆ柇瀹㈡埛绔?: "auto",
         },
         shortTypes: {
           "v1.mk": "https://v1.mk/short",
@@ -479,17 +479,19 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "大象后端": "https://sub2.dxdyzh.tk",
-          "佩奇后端": "https://api.nexconvert.com",
-          "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
-          "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
-          "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
-          nameless13提供: "https://www.nameless13.com",
-          subconverter作者提供: "https://sub.xeton.dev",
-          "sub-web作者提供": "https://api.wcc.best",
-          "墙洞": "https://api.dler.io",
+          "鎴戠殑鑷缓鍚庣": "https://subconverter.1040327027.workers.dev/sub",
+          "澶ц薄鍚庣": "https://sub2.dxdyzh.tk",
+          "浣╁鍚庣": "https://api.nexconvert.com",
+          "鑲ョ緤澧炲己鍨嬪悗绔€恦less reality+hy1+hy2銆?: "https://url.v1.mk",
+          "鑲ョ緤澶囩敤鍚庣銆恦less reality+hy1+hy2銆?: "https://sub.d1.mk",
+          "銇ゃ仱-澶氬湴闃插け鑱斻€愯礋杞藉潎琛?鍥藉唴浼樺寲銆?: "https://api.tsutsu.one",
+          nameless13鎻愪緵: "https://www.nameless13.com",
+          subconverter浣滆€呮彁渚? "https://sub.xeton.dev",
+          "sub-web浣滆€呮彁渚?: "https://api.wcc.best",
+          "澧欐礊": "https://api.dler.io",
         },
         backendOptions: [
+          {value: "https://subconverter.1040327027.workers.dev/sub"},
           {value: "https://sub2.dxdyzh.tk"},
           {value: "https://api.nexconvert.com"},
           {value: "https://url.v1.mk"},
@@ -502,109 +504,109 @@ export default {
         ],
         remoteConfig: [
           {
-            label: "通用",
+            label: "閫氱敤",
             options: [
               {
-                label: "DNS防泄漏",
+                label: "DNS闃叉硠婕?,
                 value: "https://raw.githubusercontent.com/CitizenScyu/clash-rules/master/DNS.ini"
               },
               {
-                label: "默认（自动测速）",
+                label: "榛樿锛堣嚜鍔ㄦ祴閫燂級",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini"
               }, 
             ]
           },
           {
-            label: "ACL规则",
+            label: "ACL瑙勫垯",
             options: [
               {
-                label: "ACL_默认版",
+                label: "ACL_榛樿鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini"
               },
               {
-                label: "ACL_无测速版",
+                label: "ACL_鏃犳祴閫熺増",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_NoAuto.ini"
               },
               {
-                label: "ACL_去广告版",
+                label: "ACL_鍘诲箍鍛婄増",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_AdblockPlus.ini"
               },
               {
-                label: "ACL_多国家版",
+                label: "ACL_澶氬浗瀹剁増",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_MultiCountry.ini"
               },
               {
-                label: "ACL_无Reject版",
+                label: "ACL_鏃燫eject鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_NoReject.ini"
               },
               {
-                label: "ACL_无测速精简版",
+                label: "ACL_鏃犳祴閫熺簿绠€鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_NoAuto.ini"
               },
               {
-                label: "ACL_全分组版",
+                label: "ACL_鍏ㄥ垎缁勭増",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini"
               },
               {
-                label: "ACL_全分组谷歌版",
+                label: "ACL_鍏ㄥ垎缁勮胺姝岀増",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_Google.ini"
               },
               {
-                label: "ACL_全分组多模式版",
+                label: "ACL_鍏ㄥ垎缁勫妯″紡鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
               },
               {
-                label: "ACL_全分组奈飞版",
+                label: "ACL_鍏ㄥ垎缁勫椋炵増",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_Netflix.ini"
               },
               {
-                label: "ACL_精简版",
+                label: "ACL_绮剧畝鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini.ini"
               },
               {
-                label: "ACL_去广告精简版",
+                label: "ACL_鍘诲箍鍛婄簿绠€鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_AdblockPlus.ini"
               },
               {
-                label: "ACL_Fallback精简版",
+                label: "ACL_Fallback绮剧畝鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_Fallback.ini"
               },
               {
-                label: "ACL_多国家精简版",
+                label: "ACL_澶氬浗瀹剁簿绠€鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiCountry.ini"
               },
               {
-                label: "ACL_多模式精简版",
+                label: "ACL_澶氭ā寮忕簿绠€鐗?,
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini"
               }
             ]
           },
           {
-            label: "全网搜集规则",
+            label: "鍏ㄧ綉鎼滈泦瑙勫垯",
             options: [
               {
-                label: "常规规则",
+                label: "甯歌瑙勫垯",
                 value: "https://raw.githubusercontent.com/flyhigherpi/merlinclash_clash_related/master/Rule_config/ZHANG.ini"
               },
               {
-                label: "酷酷自用",
+                label: "閰烽叿鑷敤",
                 value: "https://raw.githubusercontent.com/xiaoshenxian233/cool/rule/complex.ini"
               },
               {
-                label: "PharosPro无测速",
+                label: "PharosPro鏃犳祴閫?,
                 value:
                     "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/special/phaors.ini"
               },
               {
-                label: "分区域故障转移",
+                label: "鍒嗗尯鍩熸晠闅滆浆绉?,
                 value: "https://raw.githubusercontent.com/flyhigherpi/merlinclash_clash_related/master/Rule_config/ZHANG_Area_Fallback.ini"
               },
               {
-                label: "分区域自动测速",
+                label: "鍒嗗尯鍩熻嚜鍔ㄦ祴閫?,
                 value: "https://raw.githubusercontent.com/flyhigherpi/merlinclash_clash_related/master/Rule_config/ZHANG_Area_Urltest.ini"
               },
               {
-                label: "分区域无自动测速",
+                label: "鍒嗗尯鍩熸棤鑷姩娴嬮€?,
                 value: "https://raw.githubusercontent.com/flyhigherpi/merlinclash_clash_related/master/Rule_config/ZHANG_Area_NoAuto.ini"
               },
               {
@@ -616,105 +618,105 @@ export default {
                 value: "https://raw.githubusercontent.com/OoHHHHHHH/ini/master/cfw-tap.ini"
               },
               {
-                label: "lhl77全分组（定期更新）",
+                label: "lhl77鍏ㄥ垎缁勶紙瀹氭湡鏇存柊锛?,
                 value: "https://raw.githubusercontent.com/lhl77/sub-ini/main/tsutsu-full.ini"
               },
               {
-                label: "lhl77简易版（定期更新）",
+                label: "lhl77绠€鏄撶増锛堝畾鏈熸洿鏂帮級",
                 value: "https://raw.githubusercontent.com/lhl77/sub-ini/main/tsutsu-mini-gfw.ini"
               },
               {
-                label: "ConnersHua 神机规则 Outbound",
+                label: "ConnersHua 绁炴満瑙勫垯 Outbound",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/connershua_new.ini"
               },
               {
-                label: "ConnersHua 神机规则 Inbound 回国专用",
+                label: "ConnersHua 绁炴満瑙勫垯 Inbound 鍥炲浗涓撶敤",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/connershua_backtocn.ini"
               },
               {
-                label: "lhie1 洞主规则（使用 Clash 分组规则）",
+                label: "lhie1 娲炰富瑙勫垯锛堜娇鐢?Clash 鍒嗙粍瑙勫垯锛?,
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/lhie1_clash.ini"
               },
               {
-                label: "lhie1 洞主规则完整版",
+                label: "lhie1 娲炰富瑙勫垯瀹屾暣鐗?,
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/lhie1_dler.ini"
               },
               {
-                label: "eHpo1 规则",
+                label: "eHpo1 瑙勫垯",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/ehpo1_main.ini"
               },
               {
-                label: "多策略组默认白名单模式",
+                label: "澶氱瓥鐣ョ粍榛樿鐧藉悕鍗曟ā寮?,
                 value: "https://raw.nameless13.com/api/public/dl/ROzQqi2S/white.ini"
               },
               {
-                label: "多策略组可以有效减少审计触发",
+                label: "澶氱瓥鐣ョ粍鍙互鏈夋晥鍑忓皯瀹¤瑙﹀彂",
                 value: "https://raw.nameless13.com/api/public/dl/ptLeiO3S/mayinggfw.ini"
               },
               {
-                label: "精简策略默认白名单",
+                label: "绮剧畝绛栫暐榛樿鐧藉悕鍗?,
                 value: "https://raw.nameless13.com/api/public/dl/FWSh3dXz/easy3.ini"
               },
               {
-                label: "多策略增加SMTP策略",
+                label: "澶氱瓥鐣ュ鍔燬MTP绛栫暐",
                 value: "https://raw.nameless13.com/api/public/dl/L_-vxO7I/youtube.ini"
               },
               {
-                label: "无策略入门推荐",
+                label: "鏃犵瓥鐣ュ叆闂ㄦ帹鑽?,
                 value: "https://raw.nameless13.com/api/public/dl/zKF9vFbb/easy.ini"
               },
               {
-                label: "无策略入门推荐国家分组",
+                label: "鏃犵瓥鐣ュ叆闂ㄦ帹鑽愬浗瀹跺垎缁?,
                 value: "https://raw.nameless13.com/api/public/dl/E69bzCaE/easy2.ini"
               },
               {
-                label: "无策略仅IPIP CN + Final",
+                label: "鏃犵瓥鐣ヤ粎IPIP CN + Final",
                 value: "https://raw.nameless13.com/api/public/dl/XHr0miMg/ipip.ini"
               },
               {
-                label: "无策略魅影vip分组",
+                label: "鏃犵瓥鐣ラ瓍褰眝ip鍒嗙粍",
                 value: "https://raw.nameless13.com/api/public/dl/BBnfb5lD/MAYINGVIP.ini"
               },
               {
-                label: "品云专属配置（仅香港区域分组）",
+                label: "鍝佷簯涓撳睘閰嶇疆锛堜粎棣欐腐鍖哄煙鍒嗙粍锛?,
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Examine.ini"
               },
               {
-                label: "品云专属配置（全地域分组）",
+                label: "鍝佷簯涓撳睘閰嶇疆锛堝叏鍦板煙鍒嗙粍锛?,
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Examine_Full.ini"
               },
               {
-                label: "nzw9314 规则",
+                label: "nzw9314 瑙勫垯",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/nzw9314_custom.ini"
               },
               {
-                label: "maicoo-l 规则",
+                label: "maicoo-l 瑙勫垯",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/maicoo-l_custom.ini"
               },
               {
-                label: "DlerCloud Platinum 李哥定制规则",
+                label: "DlerCloud Platinum 鏉庡摜瀹氬埗瑙勫垯",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/dlercloud_lige_platinum.ini"
               },
               {
-                label: "DlerCloud Gold 李哥定制规则",
+                label: "DlerCloud Gold 鏉庡摜瀹氬埗瑙勫垯",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/dlercloud_lige_gold.ini"
               },
               {
-                label: "DlerCloud Silver 李哥定制规则",
+                label: "DlerCloud Silver 鏉庡摜瀹氬埗瑙勫垯",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/dlercloud_lige_silver.ini"
               },
               {
-                label: "ProxyStorage自用",
+                label: "ProxyStorage鑷敤",
                 value: "https://unpkg.com/proxy-script/config/Clash/clash.ini"
               },
               {
-                label: "ShellClash修改版规则 (by UlinoyaPed)",
+                label: "ShellClash淇敼鐗堣鍒?(by UlinoyaPed)",
                 value: "https://github.com/UlinoyaPed/ShellClash/raw/master/rules/ShellClash.ini"
               }
             ]
           },
           {
-            label: "各大机场规则",
+            label: "鍚勫ぇ鏈哄満瑙勫垯",
             options: [
               {
                 label: "EXFLUX",
@@ -737,7 +739,7 @@ export default {
                     "https://gist.github.com/jklolixxs/e2b0105c8be6023f3941816509a4c453/raw/BigAirport.ini"
               },
               {
-                label: "跑路云",
+                label: "璺戣矾浜?,
                 value:
                     "https://gist.github.com/jklolixxs/9f6989137a2cfcc138c6da4bd4e4cbfc/raw/PaoLuCloud.ini"
               },
@@ -747,12 +749,12 @@ export default {
                     "https://gist.github.com/jklolixxs/fccb74b6c0018b3ad7b9ed6d327035b3/raw/WaveCloud.ini"
               },
               {
-                label: "几鸡",
+                label: "鍑犻浮",
                 value:
                     "https://gist.github.com/jklolixxs/bfd5061dceeef85e84401482f5c92e42/raw/JiJi.ini"
               },
               {
-                label: "四季加速",
+                label: "鍥涘鍔犻€?,
                 value:
                     "https://gist.github.com/jklolixxs/6ff6e7658033e9b535e24ade072cf374/raw/SJ.ini"
               },
@@ -787,11 +789,11 @@ export default {
                     "https://gist.github.com/jklolixxs/b1f91606165b1df82e5481b08fd02e00/raw/ABCloud.ini"
               },
               {
-                label: "咸鱼",
+                label: "鍜搁奔",
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/customized/xianyu.ini"
               },
               {
-                label: "便利店",
+                label: "渚垮埄搴?,
                 value: "https://subweb.oss-cn-hongkong.aliyuncs.com/RemoteConfig/customized/convenience.ini"
               },
               {
@@ -807,11 +809,11 @@ export default {
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/V2Pro.ini"
               },
               {
-                label: "史迪仔-自动测速",
+                label: "鍙茶开浠?鑷姩娴嬮€?,
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch.ini"
               },
               {
-                label: "史迪仔-负载均衡",
+                label: "鍙茶开浠?璐熻浇鍧囪　",
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch-Balance.ini"
               },
               {
@@ -857,7 +859,7 @@ export default {
             ]
           },
           {
-            label: "特殊",
+            label: "鐗规畩",
             options: [
               {
                 label: "NeteaseUnblock",
@@ -895,11 +897,11 @@ export default {
         scv: false,
         fdn: false,
         appendType: false,
-        insert: false, // 是否插入默认订阅的节点，对应配置项 insert_url
-        new_name: true, // 是否使用 Clash 新字段
+        insert: false, // 鏄惁鎻掑叆榛樿璁㈤槄鐨勮妭鐐癸紝瀵瑰簲閰嶇疆椤?insert_url
+        new_name: true, // 鏄惁浣跨敤 Clash 鏂板瓧娈?
         tpl: {
           surge: {
-            doh: false // dns 查询是否使用 DoH
+            doh: false // dns 鏌ヨ鏄惁浣跨敤 DoH
           },
           clash: {
             doh: false
@@ -927,7 +929,7 @@ export default {
     };
   },
   created() {
-    document.title = "大象订阅转换工具";
+    document.title = "澶ц薄璁㈤槄杞崲宸ュ叿";
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
@@ -944,7 +946,7 @@ export default {
     if (typeof darkMedia.addEventListener === 'function' || typeof lightMedia.addEventListener === 'function') {
       lightMedia.addEventListener('change', callback);
       darkMedia.addEventListener('change', callback);
-    } //监听系统主题，自动切换！
+    } //鐩戝惉绯荤粺涓婚锛岃嚜鍔ㄥ垏鎹紒
   },
   methods: {
     selectChanged() {
@@ -967,19 +969,19 @@ export default {
       const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
       if (getLocalTheme) {
         document.getElementsByTagName('body')[0].className = getLocalTheme;
-      } //读取localstorage，优先级最高！
+      } //璇诲彇localstorage锛屼紭鍏堢骇鏈€楂橈紒
       else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
         if (new Date().getHours() >= 19 || new Date().getHours() < 7) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         } else {
           document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
-        } //根据当前时间来判断，用来对付QQ等不支持媒体变量查询的浏览器
+        } //鏍规嵁褰撳墠鏃堕棿鏉ュ垽鏂紝鐢ㄦ潵瀵逛粯QQ绛変笉鏀寔濯掍綋鍙橀噺鏌ヨ鐨勬祻瑙堝櫒
         if (lightMode && lightMode.matches) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         }
         if (darkMode && darkMode.matches) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
-        } //根据窗口主题来判断当前主题！
+        } //鏍规嵁绐楀彛涓婚鏉ュ垽鏂綋鍓嶄富棰橈紒
       }
     },
     change() {
@@ -994,7 +996,7 @@ export default {
       }
     },
     onCopy() {
-      this.$message.success("已复制");
+      this.$message.success("宸插鍒?);
     },
     goToProject() {
       window.open(project);
@@ -1012,9 +1014,9 @@ export default {
       window.open(downld);
     },
     gotoBasicVideo() {
-      this.$alert("性价比机场 https://m5js.top/register?code=XQeYp0Eu", {
+      this.$alert("鎬т环姣旀満鍦?https://m5js.top/register?code=XQeYp0Eu", {
         type: "warning",
-        confirmButtonText: '确定',
+        confirmButtonText: '纭畾',
         customClass: 'msgbox',
         showClose: false,
       })
@@ -1023,9 +1025,9 @@ export default {
           });
     },
     gotoAdvancedVideo() {
-      this.$alert("欢迎加入TG频道@CitizenScyu", {
+      this.$alert("娆㈣繋鍔犲叆TG棰戦亾@CitizenScyu", {
         type: "warning",
-        confirmButtonText: '确定',
+        confirmButtonText: '纭畾',
         customClass: 'msgbox',
         showClose: false,
       })
@@ -1035,7 +1037,7 @@ export default {
     },
     makeUrl() {
       if (this.form.sourceSubUrl === "" || this.form.clientType === "") {
-        this.$message.error("订阅链接与客户端为必填项");
+        this.$message.error("璁㈤槄閾炬帴涓庡鎴风涓哄繀濉」");
         return false;
       }
       let backend =
@@ -1126,7 +1128,7 @@ export default {
         }
       }
       this.$copyText(this.customSubUrl);
-      this.$message.success("定制订阅已复制到剪贴板");
+      this.$message.success("瀹氬埗璁㈤槄宸插鍒跺埌鍓创鏉?);
     },
     makeShortUrl() {
       let duan =
@@ -1149,13 +1151,13 @@ export default {
             if (res.data.Code === 1 && res.data.ShortUrl !== "") {
               this.customShortSubUrl = res.data.ShortUrl;
               this.$copyText(res.data.ShortUrl);
-              this.$message.success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）");
+              this.$message.success("鐭摼鎺ュ凡澶嶅埗鍒板壀璐存澘锛圛OS璁惧鍜孲afari娴忚鍣ㄤ笉鏀寔鑷姩澶嶅埗API锛岄渶鎵嬪姩鐐瑰嚮澶嶅埗鎸夐挳锛?);
             } else {
-              this.$message.error("短链接获取失败：" + res.data.Message);
+              this.$message.error("鐭摼鎺ヨ幏鍙栧け璐ワ細" + res.data.Message);
             }
           })
           .catch(() => {
-            this.$message.error("短链接获取失败");
+            this.$message.error("鐭摼鎺ヨ幏鍙栧け璐?);
           })
           .finally(() => {
             this.loading1 = false;
@@ -1174,17 +1176,17 @@ export default {
           .then(res => {
             if (res.data.code === 0 && res.data.data !== "") {
               this.$message.success(
-                  "远程配置上传成功，配置链接已复制到剪贴板"
+                  "杩滅▼閰嶇疆涓婁紶鎴愬姛锛岄厤缃摼鎺ュ凡澶嶅埗鍒板壀璐存澘"
               );
               this.form.remoteConfig = res.data.data;
               this.$copyText(this.form.remoteConfig);
               this.dialogUploadConfigVisible = false;
             } else {
-              this.$message.error("远程配置上传失败: " + res.data.msg);
+              this.$message.error("杩滅▼閰嶇疆涓婁紶澶辫触: " + res.data.msg);
             }
           })
           .catch(() => {
-            this.$message.error("远程配置上传失败");
+            this.$message.error("杩滅▼閰嶇疆涓婁紶澶辫触");
           })
           .finally(() => {
             this.loading2 = false;
@@ -1203,7 +1205,7 @@ export default {
             });
             return response.url;
           } catch (e) {
-            this.$message.error("解析短链接失败，请检查短链接服务端是否配置跨域：" + e)
+            this.$message.error("瑙ｆ瀽鐭摼鎺ュけ璐ワ紝璇锋鏌ョ煭閾炬帴鏈嶅姟绔槸鍚﹂厤缃法鍩燂細" + e)
           } finally {
             this.loading3 = false;
           }
@@ -1212,7 +1214,7 @@ export default {
     },
     confirmLoadConfig() {
       if (this.loadConfig.trim() === "" || !this.loadConfig.trim().includes("http")) {
-        this.$message.error("待解析的订阅链接不合法");
+        this.$message.error("寰呰В鏋愮殑璁㈤槄閾炬帴涓嶅悎娉?);
         return false;
       }
       (async () => {
@@ -1220,7 +1222,7 @@ export default {
         try {
           url = new URL(await this.analyzeUrl())
         } catch (error) {
-          this.$message.error("请输入正确的订阅地址!");
+          this.$message.error("璇疯緭鍏ユ纭殑璁㈤槄鍦板潃!");
           return;
         }
         this.form.customBackend = url.origin
@@ -1228,13 +1230,13 @@ export default {
         if (param.get("target")) {
           let target = param.get("target");
           if (target === 'surge' && param.get("ver")) {
-            // 类型为surge,有ver
+            // 绫诲瀷涓簊urge,鏈塿er
             this.form.clientType = target + "&ver=" + param.get("ver");
           } else if (target === 'surge') {
-            //类型为surge,没有ver
+            //绫诲瀷涓簊urge,娌℃湁ver
             this.form.clientType = target + "&ver=4"
           } else {
-            //类型为其他
+            //绫诲瀷涓哄叾浠?
             this.form.clientType = target;
           }
         }
@@ -1311,7 +1313,7 @@ export default {
           this.form.tpl.singbox.ipv6 = param.get("singbox.ipv6") === '1';
         }
         this.dialogLoadConfigVisible = false;
-        this.$message.success("长/短链接已成功解析为订阅信息");
+        this.$message.success("闀?鐭摼鎺ュ凡鎴愬姛瑙ｆ瀽涓鸿闃呬俊鎭?);
       })();
     },
     renderPost() {
@@ -1338,7 +1340,7 @@ export default {
     },
     confirmUploadScript() {
       if (this.form.sourceSubUrl.trim() === "") {
-        this.$message.error("订阅链接不能为空");
+        this.$message.error("璁㈤槄閾炬帴涓嶈兘涓虹┖");
         return false;
       }
       this.loading2 = true;
@@ -1354,18 +1356,18 @@ export default {
           .then(res => {
             if (res.data.code === 0 && res.data.data !== "") {
               this.$message.success(
-                  "自定义JS上传成功，订阅链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）"
+                  "鑷畾涔塉S涓婁紶鎴愬姛锛岃闃呴摼鎺ュ凡澶嶅埗鍒板壀璐存澘锛圛OS璁惧鍜孲afari娴忚鍣ㄤ笉鏀寔鑷姩澶嶅埗API锛岄渶鎵嬪姩鐐瑰嚮澶嶅埗鎸夐挳锛?
               );
               this.customSubUrl = res.data.data;
               this.$copyText(res.data.data);
               this.dialogUploadConfigVisible = false;
               this.btnBoolean = true;
             } else {
-              this.$message.error("自定义JS上传失败: " + res.data.msg);
+              this.$message.error("鑷畾涔塉S涓婁紶澶辫触: " + res.data.msg);
             }
           })
           .catch(() => {
-            this.$message.error("自定义JS上传失败");
+            this.$message.error("鑷畾涔塉S涓婁紶澶辫触");
           })
           .finally(() => {
             this.loading2 = false;
@@ -1381,10 +1383,10 @@ export default {
             this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
             let a = this.form.customBackend.indexOf("url.v1.mk") !== -1 || this.form.customBackend.indexOf("sub.d1.mk") !== -1;
             let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
-            a ? this.$message.success(`${this.backendVersion}` + "欢迎加入TG频道@CitizenScyu，额外支持vless reality+hysteria+hysteria2订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
+            a ? this.$message.success(`${this.backendVersion}` + "娆㈣繋鍔犲叆TG棰戦亾@CitizenScyu锛岄澶栨敮鎸乿less reality+hysteria+hysteria2璁㈤槄杞崲") : b ? this.$message.success(`${this.backendVersion}` + "鏈湴灞€鍩熺綉鑷缓鐗堝悗绔?) : this.$message.success(`${this.backendVersion}` + "瀹樻柟鍘熺増鍚庣涓嶆敮鎸乿less/hysteria璁㈤槄杞崲");
           })
           .catch(() => {
-            this.$message.error("欢迎加入TG频道@CitizenScyu");
+            this.$message.error("娆㈣繋鍔犲叆TG棰戦亾@CitizenScyu");
           });
     }
   }
