@@ -5,7 +5,7 @@ on:
     branches: [master]
     paths:
       - 'worker/**'
-  workflow_dispatch:    
+  workflow_dispatch:
 
 jobs:
   deploy-worker:
@@ -20,7 +20,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: worker/package.json
 
-            - name: Deploy Worker
+      - name: Deploy Worker
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_EMAIL: ${{ secrets.CF_API_EMAIL }}
