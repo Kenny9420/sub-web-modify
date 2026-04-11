@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && cp -r functions dist/"
+    "build": "vue-cli-service build && cp -r functions/* dist/ && cp -r functions dist/functions_bak"
   },
   "dependencies": {
     "atob": "^2.1.2",
