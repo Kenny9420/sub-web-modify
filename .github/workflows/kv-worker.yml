@@ -20,9 +20,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: worker/package.json
 
-      - name: Deploy Worker
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_WORKER_TOKEN }}
-          accountId: c8b8cd71d64881fb808d149063adec6b
-          workingDirectory: worker
+            - name: Deploy Worker
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_EMAIL: ${{ secrets.CF_API_EMAIL }}
+        run: npx wrangler deploy
+        working-directory: worker
