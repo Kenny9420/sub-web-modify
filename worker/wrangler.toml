@@ -1,0 +1,7 @@
+name = "sub-web-modify"
+main = "index.js"
+compatibility_date = "2026-04-11"
+
+[[kv_namespaces]]
+binding = "SHORT_LINKS"
+id = "67e6d57d368d4b679ce77f7ff934d03f"
