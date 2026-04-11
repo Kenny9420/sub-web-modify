@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy dist --project-name=sub-web-modify
+        run: npx wrangler pages deploy dist/functions --project-name=sub-web-modify
         env:
           CLOUDFLARE_API_KEY: ${{ secrets.CF_API_KEY }}
           CLOUDFLARE_EMAIL: ${{ secrets.CF_API_EMAIL }}
